@@ -27,7 +27,7 @@ This is the accompanying code for the above paper.
 ### How to use predict.py
 To use this script, you do not need any datasets. This script is a higher level, packed-up version of the implementation of the proposed model. It uses our trained models to extract geneal or vocal melodies of customer audio files. The melody will be written to a csv file in which the first column are times in seconds and the second column are frequencies in Hertz.
 ```
-usage: predict.py [-h] [--output_dir [OUTPUT_DIR]] [--melody_type {general,vocal}] [--gpu_idx GPU_IDX] [--test27] input_files [input_files ...]
+usage: python predict.py [-h] [--output_dir [OUTPUT_DIR]] [--melody_type {general,vocal}] [--gpu_idx GPU_IDX] [--test27] input_files [input_files ...]
 
 extract general or vocal melody
 
@@ -46,3 +46,5 @@ optional arguments:
                         Use flag --test27 to select the checkpoint for partition (66, 15, 27).
                         Otherwise, the checkpoint for partition (67, 15, 26) will be used
 ```
+
+### How to use training_and_inference.py
