@@ -62,9 +62,10 @@ This is another higher level, packed-up version of the implementation of the pro
   - For the name of this environment variable, please refer to file *general/shaun/shaun.py* and file *vocal/shaun/shaun_vocal.py* for details.  
 
 ```
-usage: python training_and_inference.py [-h] [--debug] [--melody_type {general,vocal}] [--mode {training,inference}]
-                                        [--inference_dataset {rwc,adc04,mdb_s,mirex05,orchset,mdb,mir1k,wjd}] [--test27] [--gpu_idx GPU_IDX] [--ckpt CKPT]
-                                        [--ckpt_prefix CKPT_PREFIX] [--snippet_len SNIPPET_LEN] [--tb_dir TB_DIR]
+
+usage: training_and_inference.py [-h] [--debug] [--melody_type {general,vocal}] [--mode {training,inference}]
+                                 [--inference_dataset {adc04,mirex05,mdb_s,rwc,mdb,wjd,orchset,mir1k}] [--test27] [--gpu_idx GPU_IDX] [--ckpt CKPT]
+                                 [--ckpt_prefix CKPT_PREFIX] [--snippet_len SNIPPET_LEN] [--tb_dir TB_DIR]
 
 Instruction on How to Use Melody Extraction
 
@@ -83,7 +84,7 @@ Instruction on How to Use Melody Extraction
    Use option --test27 to select (66, 15, 27).
    Otherwise, (67, 15, 26) will be selected by default.
 
-6. Use --gpu_idx to select which GPU to use if you have multiple GPUs. Default to 0.
+6. Use --gpu_idx to select which GPU to use if you have multiple GPUs. Defaults to 0.
 
 7. In training mode, we can continue training from an existing checkpoint or train from scratch. In inference mode, a checkpoint is required.
    Use option --ckpt to specify the checkpoint. 
@@ -151,16 +152,18 @@ optional arguments:
   -h, --help            show this help message and exit
   --debug               run in debug mode
   --melody_type {general,vocal}
-                        melody type, default to general
+                        melody type, defaults to general
   --mode {training,inference}
-                        train or inference, default to inference
-  --inference_dataset {rwc,adc04,mdb_s,mirex05,orchset,mdb,mir1k,wjd}
-                        which dataset to run inference on, default to mdb
+                        train or inference, defaults to inference
+  --inference_dataset {adc04,mirex05,mdb_s,rwc,mdb,wjd,orchset,mir1k}
+                        which dataset to run inference on, defaults to mdb
   --test27              If present, use partition (66, 15, 27). Otherwise, use (67, 15, 26)
-  --gpu_idx GPU_IDX     which GPU to use, starting from 0
-  --ckpt CKPT           a checkpoint
+  --gpu_idx GPU_IDX     which GPU to use, starting from 0. Defaults to 0
+  --ckpt CKPT           a checkpoint, defaults to None
   --ckpt_prefix CKPT_PREFIX
-                        a checkpoint prefix
+                        a checkpoint prefix, defaults to d0
   --snippet_len SNIPPET_LEN
-  --tb_dir TB_DIR       directory for tensorboard summary
+                        the number of frames for each mini example, defaults to 1200
+  --tb_dir TB_DIR       directory for tensorboard summary, defaults to tb_d0
+
 ```
