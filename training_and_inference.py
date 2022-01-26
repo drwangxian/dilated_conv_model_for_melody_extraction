@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import logging
 logging.basicConfig(
     level=logging.INFO,
@@ -18,16 +20,16 @@ def parser():
     p = argparse.ArgumentParser(description=str(help_str), formatter_class=argparse.RawDescriptionHelpFormatter)
 
     p.add_argument('--debug', action='store_true', help='run in debug mode')
-    p.add_argument('--melody_type', choices=['general', 'vocal'], default='general', help='melody type, default to general')
-    p.add_argument('--mode', choices=['training', 'inference'], default='inference', help='train or inference, default to inference')
+    p.add_argument('--melody_type', choices=['general', 'vocal'], default='general', help='melody type, defaults to general')
+    p.add_argument('--mode', choices=['training', 'inference'], default='inference', help='train or inference, defaults to inference')
     p.add_argument('--inference_dataset', choices=CONSTS.all_allowed_datasets,
-                   default='mdb', help='which dataset to run inference on, default to mdb')
+                   default='mdb', help='which dataset to run inference on, defaults to mdb')
     p.add_argument('--test27', action='store_true', help='If present, use partition (66, 15, 27). Otherwise, use (67, 15, 26)')
-    p.add_argument('--gpu_idx', type=int, default=0, help='which GPU to use, starting from 0')
-    p.add_argument('--ckpt', default=None, help='a checkpoint')
-    p.add_argument('--ckpt_prefix', default='d0', help='a checkpoint prefix')
-    p.add_argument('--snippet_len', type=int, default=1200)
-    p.add_argument('--tb_dir', default='tb_d0', help='directory for tensorboard summary')
+    p.add_argument('--gpu_idx', type=int, default=0, help='which GPU to use, starting from 0. Defaults to 0')
+    p.add_argument('--ckpt', default=None, help='a checkpoint, defaults to None')
+    p.add_argument('--ckpt_prefix', default='d0', help='a checkpoint prefix, defaults to d0')
+    p.add_argument('--snippet_len', type=int, default=1200, help='the number of frames for each mini example, defaults to 1200')
+    p.add_argument('--tb_dir', default='tb_d0', help='directory for tensorboard summary, defaults to tb_d0')
 
     args = p.parse_args()
 

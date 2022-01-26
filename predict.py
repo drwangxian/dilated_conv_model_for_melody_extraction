@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import logging
 logging.basicConfig(
     level=logging.INFO,
@@ -25,10 +27,10 @@ def parser():
                 # this is the RawTextHelpFormatter._split_lines
             return argparse.HelpFormatter._split_lines(self, text, width)
 
-    p = argparse.ArgumentParser(description='extract general or vocal melody', formatter_class=SmartFormatter)
+    p = argparse.ArgumentParser(description='extract general or vocal melody from arbitrary audio files', formatter_class=SmartFormatter)
 
     p.add_argument('input_files', nargs='+', help='one or multiple input audio files, supporting wildcard characters')
-    p.add_argument('--output_dir', nargs='?', default='output', help='output directory')
+    p.add_argument('--output_dir', nargs='?', default='output', help='output directory, defaults to output')
     p.add_argument('--melody_type', default='general', choices=['general', 'vocal'], help='melody type: general or vocal, defaults to general')
     p.add_argument('--gpu_idx', default=0, type=int, help='which GPU to use, starting from 0, defaults to 0')
     p.add_argument('--test27', action='store_true', help="R|Relevant only for general melody extraction.\n"

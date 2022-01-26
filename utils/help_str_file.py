@@ -11,7 +11,7 @@ help_str = '''\nInstruction on How to Use Melody Extraction
 \n5. The are two possible partitions of the MedleyDB dataset, namely, (67, 15, 26) and (66, 15, 27). 
    Use option --test27 to select (66, 15, 27).
    Otherwise, (67, 15, 26) will be selected by default.
-\n6. Use --gpu_idx to select which GPU to use if you have multiple GPUs. Default to 0.
+\n6. Use --gpu_idx to select which GPU to use if you have multiple GPUs. Defaults to 0.
 \n7. In training mode, we can continue training from an existing checkpoint or train from scratch. In inference mode, a checkpoint is required.
    Use option --ckpt to specify the checkpoint. 
    In inference mode, if a checkpoint is not specified, the checkpoint coming with this paper will be used.
