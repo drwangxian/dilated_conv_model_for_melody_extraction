@@ -1,5 +1,5 @@
 # Dilated Convolutional Model for Melody Extraction
-X. Wang, L. Liu, and Q. Shi, "Dilated convolutional model for melody extraction," submitted to IEEE Signal Processing Letters for peer review, 2022.
+X. Wang, L. Liu, and Q. Shi, "Dilated convolutional model for melody extraction," submitted to *IEEE Signal Processing Letters* for peer review, 2022.
 
 This is the accompanying code for the above paper.
 
@@ -15,23 +15,22 @@ This is the accompanying code for the above paper.
 - vocal: implementations of some models for vocal melody extraction
 - predict.py: extract the melodies of any customer audio files with the proposed model
 - training_and_inference.py: for training the proposed model and inferencing on known datasets
-- data_splits_jiri.json: partition (67, 15, 27) of MedleyDB
+- data_splits_jiri.json: partition (67, 15, 27) of MedleyDB copied from [here](https://github.com/kukas/music-transcription/blob/master/data/mdb_ismir_split.json)
 
 ### Main Dependencies
 - python 3.8.8 
 - tensorflow 2.x
 - librosa 0.7.2
 - SoundFile 0.10.3.post1
-- sqlite 3.35.4
 - medleydb 1.3.4
 - mir-eval 0.6
 
 ### How to use predict.py
 To use this script, you do not need any datasets. This script is a higher level, packed-up version of the implementation of the proposed model. It uses our trained models to extract geneal or vocal melodies of customer audio files. The melody will be written to a csv file in which the first column are times in seconds and the second column are frequencies in Hertz.
 ```
-usage: python predict.py [-h] [--output_dir [OUTPUT_DIR]] [--melody_type {general,vocal}] [--gpu_idx GPU_IDX] [--test27] input_files [input_files ...]
+usage: predict.py [-h] [--output_dir [OUTPUT_DIR]] [--melody_type {general,vocal}] [--gpu_idx GPU_IDX] [--test27] input_files [input_files ...]
 
-extract general or vocal melody
+extract general or vocal melody from arbitrary audio files
 
 positional arguments:
   input_files           one or multiple input audio files, supporting wildcard characters
@@ -39,7 +38,7 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   --output_dir [OUTPUT_DIR]
-                        output directory
+                        output directory, defaults to output
   --melody_type {general,vocal}
                         melody type: general or vocal, defaults to general
   --gpu_idx GPU_IDX     which GPU to use, starting from 0, defaults to 0
@@ -47,15 +46,18 @@ optional arguments:
                         Determine which checkpoint to use for general melody extraction.
                         Use flag --test27 to select the checkpoint for partition (66, 15, 27).
                         Otherwise, the checkpoint for partition (67, 15, 26) will be used
+
 ```
 
 ### How to use training_and_inference.py
 This is another higher level, packed-up version of the implementation of the proposed model. You can use it for training the proposed model and inferencing on known datasets.
 - To train the model,
-  - First obtain the MedleyDB dataset, and extract it to a folder. 
-  - Create an environment variable named *medleydb* pointing to the above folder.
-  - Create a folder named *V1_auxiliary* under *$medleydb*.
-  - Move file *data_splits_jiri.json* to *$medleydb/V1_auxiliary*
+  - Frist download the MedleyDB dataset.
+  - Create a folder named *medleydb/V1* anywhere you like to store the dataset.
+  - Extract the dataset to the above folder.
+  - Create an environment variable named *medleydb* pointing to folder *medleydb/V1*.
+  - Create a folder *medleydb/V1_auxiliary*.
+  - Move file *data_splits_jiri.json* to folder *medleydb/V1_auxiliary*.
 - To inference on a known dataset except MedleyDB,
   - First obtain the dataset and extract it to a folder.
   - Then create an environment variable pointing to the above folder.
