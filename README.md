@@ -11,6 +11,7 @@ This is the accompanying code for the above paper.
 ### What are the folders and files in this repository?
 - checkpoints: checkpoints of some trained models
 - geneal: implementations of some models for general meldoy extraction
+- utils: miscellaneous utilities
 - vocal: implementations of some models for vocal melody extraction
 - predict.py: extract the melodies of any customer audio files with the proposed model
 - training_and_inference.py: for training the proposed model and inferencing on known datasets
