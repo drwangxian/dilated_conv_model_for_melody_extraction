@@ -1,5 +1,5 @@
 # Dilated Convolutional Model for Melody Extraction
-X. Wang, L. Liu, and Q. Shi, "Dilated convolutional model for melody extraction," submitted to *IEEE Signal Processing Letters* for peer review, 2022, manuscript available [here](https://www.techrxiv.org/articles/preprint/Dilated_Convolutional_Model_for_Melody_Extraction/19092005/1).
+X. Wang, L. Liu, and Q. Shi, "Dilated convolutional model for melody extraction," submitted to *IEEE Signal Processing Letters* for peer review, 2022, manuscript available [here](https://www.techrxiv.org/articles/preprint/Dilated_Convolutional_Model_for_Melody_Extraction/19092005/1){:target="_blank"}.
 
 This is the accompanying code for the above paper.
 
