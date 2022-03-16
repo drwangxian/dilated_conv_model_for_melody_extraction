@@ -1,0 +1,4 @@
+model_checkpoint_path: "d0-40"
+all_model_checkpoint_paths: "d0-40"
+all_model_checkpoint_timestamps: 1647077345.3210435
+last_preserved_timestamp: 1646972436.597919
