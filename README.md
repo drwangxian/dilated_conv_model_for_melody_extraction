@@ -3,6 +3,9 @@ X. Wang, L. Liu, and Q. Shi, "Dilated convolutional model for melody extraction,
 
 This is the accompanying code for the above paper.
 
+### What is new?
+Extra code involved in the 2nd submission is put under folder *extra_code_for_2nd_submission*.
+
 ### What are included in this respsitory?
 - the implementatons of the proposed model as well as some existing models compared with in the paper
 - the checkpoints of some trained models
